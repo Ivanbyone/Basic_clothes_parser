@@ -10,7 +10,7 @@ from fake_useragent import UserAgent
 befree_lst_titles: list[str, Any] = []
 befree_lst_prices: list[str, Any] = []
 befree_lst_discount: list[str, Any] = []
-result = {}
+result: dict = {}
 parsing_page: int = 1
 counter_iter: int = 0
 
@@ -72,10 +72,10 @@ def befree_parse_titles(ua: UserAgent, lst: list[str, Any], counter: int) -> lis
 def befree_parse_prices(ua: UserAgent, lst: list[str, Any], counter: int) -> list[str, Any]:
     """
     Parsing function for prices
-    :param ua:
-    :param lst:
-    :param counter:
-    :return:
+    :param ua: Useragent (from global scope 'ua_basic')
+    :param lst: list[str, Any] (from global scope 'befree_list_prices')
+    :param counter: int (from global scope 'counter_iter')
+    :return: list[str, Any] (from global scope 'befree_list_prices')
     """
 
     for i in range(1, 100):
@@ -121,10 +121,10 @@ def befree_parse_prices(ua: UserAgent, lst: list[str, Any], counter: int) -> lis
 def befree_parse_discount(ua: UserAgent, lst: list[str, Any], counter: int) -> list[str, Any]:
     """
     Parsing function for prices
-    :param ua:
-    :param lst:
-    :param counter:
-    :return:
+    :param ua: Useragent (from global scope 'ua_basic')
+    :param lst: list[str, Any] (from global scope 'befree_list_discount')
+    :param counter: int (from global scope 'counter_iter')
+    :return: list[str, Any] (from global scope 'befree_list_discount')
     """
 
     for i in range(1, 100):
@@ -168,9 +168,9 @@ def befree_parse_discount(ua: UserAgent, lst: list[str, Any], counter: int) -> l
 def befree_main(ua: UserAgent, result_dict: dict) -> dict:
     """
     Entry point for parser
-    :param ua:
-    :param result_dict:
-    :return:
+    :param ua: Useragent (from global scope 'ua_basic')
+    :param result_dict: dict (from global scope 'result')
+    :return: dict (from global scope 'result')
     """
 
     req = requests.get(
